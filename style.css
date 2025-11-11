@@ -1,0 +1,494 @@
+:root {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-bg: #1e1e1e;
+  --accent-color: #ff2e2e;
+  --button-bg: #b30000;
+  --button-hover: #cc0000;
+}
+
+body.light-theme {
+  --bg-color: #f5f5f5;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+  --accent-color: #c00000;
+  --button-bg: #d32f2f;
+  --button-hover: #e53935;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  width: 320px;
+  min-height: 460px;
+  overflow-y: auto;
+  position: relative;
+}
+
+#topRight {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+#topCenter {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+#logo {
+  width: 32px;
+  height: 32px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 0;
+  text-shadow: 0 0 6px var(--accent-color);
+}
+
+#contentArea {
+  margin-top: 10px;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.google-btn {
+  background: #ffffff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  width: calc(100% - 20px);   /* ✅ Prevent full edge collision */
+  margin: 12px auto 0 auto;   /* ✅ Center + margin top only */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+
+
+.google-btn:hover {
+  background: #f7f7f7;
+  box-shadow: 0 2px 6px rgba(60, 64, 67, 0.4);
+  transform: scale(1.01);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.copy-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  background: var(--button-bg);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: var(--button-hover);
+}
+
+.status-card {
+  background: #002b00;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 12px auto 0 auto;   /* ✅ Center and add spacing */
+  width: calc(100% - 20px);   /* ✅ Keep spacing on both sides */
+  font-size: 13px;
+  box-sizing: border-box;     /* ✅ Ensures padding doesn't overflow */
+}
+
+
+ul {
+  padding-left: 20px;
+  font-size: 13px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+#bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 12px 10px 12px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ✅ Dropdown container */
+.dropdown-container {
+  position: relative;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #1a1a1a, #222222);
+  padding: 12px;
+  box-shadow: inset 0 0 6px rgba(255,255,255,0.05), 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* ✅ Selected item box */
+.dropdown-selected {
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+/* ✅ Options container */
+.dropdown-options {
+  margin-top: 8px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  background: #1a1a1a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  animation: fadeSlideIn 0.2s ease-in-out both;
+  z-index: 100;
+  position: relative;
+}
+
+/* ✅ Individual option */
+.dropdown-option {
+  padding: 10px 12px;
+  color: #ddd;
+  border-bottom: 1px solid #333;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dropdown-option:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.load-more-in-dropdown {
+  font-weight: bold;
+  text-align: center;
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.load-more-in-dropdown:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+/* ✅ Scan button */
+.scan-btn {
+  background: linear-gradient(135deg, #00c853, #64dd17); /* vibrant green gradient */
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.scan-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(100, 221, 23, 0.4);
+  background: linear-gradient(135deg, #64dd17, #00c853);
+}
+
+
+.scan-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 10px rgba(255, 82, 82, 0.4);
+}
+
+/* ✅ Card animation */
+#emailSelectCard {
+  border: 1px solid rgba(255, 46, 46, 0.2);
+  background: linear-gradient(135deg, #1e1e1e, #151515);
+  box-shadow: 0 0 20px rgba(255, 46, 46, 0.08), inset 0 0 6px rgba(255, 46, 46, 0.05);
+  backdrop-filter: blur(4px);
+  animation: fadeSlideIn 0.5s ease-out both;
+}
+
+/* ✅ Animations */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.circle-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 20px auto;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 1s ease-out;
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: bold;
+  color: #00f0ff;
+  text-shadow: 0 0 4px #00ffaa;
+}
+/* Real-time notification styles */
+.realtime-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to right, #222, #333);
+  color: #fff;
+  border: 2px solid #00f0ff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00f0ff80;
+  z-index: 9999;
+  font-size: 14px;
+  animation: slideIn 0.5s ease forwards;
+  max-width: 300px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+.mode-btn {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+  color: #f0f0f0;
+  border: 1px solid #444;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 8px rgba(0, 255, 180, 0.4);
+}
+
+.mode-btn:hover {
+  background: linear-gradient(145deg, #292929, #3a3a3a);
+  color: #00ffc8;
+  box-shadow: 0 0 12px rgba(0, 255, 180, 0.7);
+}
+
+
+/* === Light Mode Card Polish === */
+body.light-theme #emailSelectCard {
+  background: #f5f5f5;
+  color: #111;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+/* === Light Mode Dropdown === */
+body.light-theme #emailDropdown {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 15px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease, border 0.2s ease;
+}
+
+body.light-theme #emailDropdown:hover {
+  border-color: #888;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+/* === Smooth transition when dropdown opens === */
+body.light-theme #dropdownOptions {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* ✅ Light mode override for dropdown-selected */
+body.light-theme .dropdown-selected {
+  background: #fefefe;
+  color: #111;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+/* Optional: hover effect for dropdown-selected in light */
+body.light-theme .dropdown-selected:hover {
+  border-color: #aaa;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+}
+.back-btn {
+  background: transparent;
+  color: var(--accent-color);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 2px;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: #ff6666;
+}
+#stopRealtimeBtn {
+  display: none;
+  background: linear-gradient(to right, #ff0033, #cc0000);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 8px 14px; /* 🔽 reduced padding */
+  border-radius: 8px;
+  font-size: 13px;    /* 🔽 slightly smaller text */
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  margin: 16px auto 0;
+  width: 80%;          /* 🔽 narrower width */
+  max-width: 240px;    /* 🔽 reduced max width */
+}
+
+#stopRealtimeBtn:hover {
+  background: linear-gradient(to right, #cc0000, #990000);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+#modeEmailButton {
+  margin-bottom: 12px;
+}
+#topRight {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* tighter spacing */
+}
+
+#topRight button {
+  font-size: 16px;
+  padding: 2px 6px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#topRight button:hover {
+  transform: scale(1.1);
+}
+#topLeft {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+#topLeft button {
+  font-size: 16px;
+  padding: 2px 6px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#topLeft button:hover {
+  transform: scale(1.1);
+}

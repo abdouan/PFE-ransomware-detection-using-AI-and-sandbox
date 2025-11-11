@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Xenix",
+  "version": "1.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArau9KGxnNg63eiXfvBtRD3W6wyj3D84XSuKuDVuMaRmiGCFbHZ68xOp7y7B7IbqWw04LlYpSNHv5yMCHaPf9wlD+hgrTbkwaFBtxmnPXREc2rTg9N/amIVAqQg+Kco1uwJbQ+JGxVcAvA3RfA/R9yMcYQQL2NCPVoTBFvw8kI765z/czAe1CO8CwjkLQESxJePQ453fpfgxZilrmhQfzREDjcEUXEH/pVZnSHIrV8durcFkMZIiGpvoUH8SCz5mVlAuWMNWKIf3V87zGPbxWW8UHjfdJelL7hRfhaIxwCWLngIhIsKLZUzWrkhCK5jZmsvxqlm80ukEENGUIykAG8QIDAQAB",
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "xenix_ph.png",
+      "48": "xenix_ph.png",
+      "128": "xenix_ph.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "permissions": [
+    "identity",
+    "identity.email",
+    "storage",
+    "notifications",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "https://gmail.googleapis.com/*",
+    "https://mail.google.com/*"
+  ],
+
+  "oauth2": {
+    "client_id": "642707496297-kbrd0tl7k9m8m84ad3kkqj84c0sniihv.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/gmail.readonly"]
+  },
+
+  "externally_connectable": {
+    "matches": ["*://*.google.com/*"]
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+
+  "web_accessible_resources": [{
+    "resources": ["xenix_ph.png"],
+    "matches": ["<all_urls>"]
+  }],
+
+  "icons": {
+    "16": "xenix_ph.png",
+    "48": "xenix_ph.png",
+    "128": "xenix_ph.png"
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Xenix</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<!-- Top-left corner: theme toggle -->
+<div id="topLeft">
+  <button id="themeToggle" title="Toggle Theme">🌙</button>
+</div>
+
+<!-- Top-right corner: minimize + close -->
+<div id="topRight">
+  <button id="closeButton" title="Close">❌</button>
+</div>
+
+
+
+  <!-- ✅ Top-center: logo + Xenix -->
+  <div id="topCenter">
+    <img src="xenix_ph.png" alt="Xenix Logo" id="logo" />
+    <h1>Xenix</h1>
+  </div>
+
+  <!-- ✅ Scan Mode Buttons (Hidden on load, shown after login) -->
+  <div id="modeSelectCard" class="card" style="display: none;">
+    <button id="modeEmailButton" class="scan-btn" style="margin-bottom: 12px;">
+      📩 Scan Specific Email
+    </button>
+    <button id="modeRealtimeButton" class="scan-btn">
+      🛡️ Enable Real-Time Protection
+    </button>
+  </div>
+
+  <!-- ✅ Stop button (hidden by default, shown after real-time starts) -->
+  <button id="stopRealtimeBtn" class="scan-btn" style="display: none;">
+    🛑 Stop Protection
+  </button>
+
+
+  <!-- Main content -->
+  <div id="contentArea">
+    <div class="card" id="loginCard">
+      <h2>Welcome to Xenix</h2>
+      <p>Connect your Gmail account to start scanning for threats</p>
+      <button id="loginButton" class="google-btn">
+        <svg class="google-icon" viewBox="0 0 533.5 544.3">
+          <path fill="#4285F4" d="M533.5 278.4c0-18.8-1.5-37-4.4-54.7H272v103.5h146.9c-6.4 34.5-25.4 63.7-54 83.2v68h87.2c51.1-47.1 81.4-116.5 81.4-200z"/>
+          <path fill="#34A853" d="M272 544.3c73.4 0 134.9-24.5 179.8-66.4l-87.2-68c-24.2 16.3-55 25.8-92.6 25.8-71 0-131-47.9-152.4-112.1h-89v70.4c45.2 88.9 137.9 150.3 241.4 150.3z"/>
+          <path fill="#FBBC05" d="M119.6 323.6c-10.2-30.5-10.2-63.1 0-93.6V159.6h-89c-35.8 69.9-35.8 153.3 0 223.2l89-70.4z"/>
+          <path fill="#EA4335" d="M272 107.6c39.9 0 75.7 13.8 104 40.7l78-78C405.7 24.5 344.2 0 272 0 168.5 0 75.8 61.4 30.6 150.3l89 70.4C141 155.5 201 107.6 272 107.6z"/>
+        </svg>
+        <span>Sign in with Google</span>
+      </button>
+    </div>
+
+    <!-- ✅ New Scanning Mode Selection Card -->
+<div id="modeSelectCard" class="card" style="display: none;">
+  <button id="modeEmailButton" class="scan-btn">📩 Scan Specific Email</button>
+  <button id="modeRealtimeButton" class="scan-btn">🛡️ Enable Real-Time Protection</button>
+  <button id="stopRealtimeBtn" class="scan-btn" style="display: none; background: linear-gradient(to right, #ff0033, #cc0000);">🛑 Stop Protection</button>
+</div>
+
+
+
+    <!-- ✅ Email selection card with custom dropdown -->
+    <div class="card" id="emailSelectCard" style="display: none;">
+      <h3>Select an Email to Scan</h3>
+      <div class="dropdown-container" id="emailDropdownContainer">
+        <button id="backToModeSelect" class="back-btn">🔙 Go Back</button>
+        <div class="dropdown-selected" id="dropdownSelected">Choose an email...</div>
+        <div class="dropdown-options" id="dropdownOptions" style="display: none;"></div>
+      </div>
+      <button id="scanButton" class="scan-btn" style="display: none;">🚀 Start Scanning</button>
+    </div>
+  </div>
+
+  <div id="loginStatus" class="status-card" style="display: none;"></div>
+  <button id="copyButton" class="copy-btn" style="display: none;">📋 Copy Result</button>
+
+  <div class="card" id="aboutCard" style="display: none;">
+    <h3 style="color: #00ff99;">About Xenix</h3>
+    <p>
+      Xenix is an AI-powered email security tool that scans Gmail for phishing,
+      ransomware, and other malicious content. It uses real-time machine learning
+      models, handcrafted feature analysis, and sandbox-based dynamic inspection to
+      protect your inbox.
+    </p>
+    <p>
+      Suspicious emails are analyzed using smart models — URLs, attachments, and embedded images are checked. If needed, the content is safely isolated in a virtual environment (sandbox) before you ever interact with it.
+    </p>
+    <p>
+      The extension is lightweight, fast, and works fully in the background. It offers you peace of mind while using Gmail — without interfering with your workflow.
+    </p>
+    <p><strong>Created in 2025 by MISSAOUI & MEHDID.</strong></p>
+  </div>
+
+  <div class="card" id="supportCard" style="display: none;">
+    <h3 style="color: #00cfff;">Need Help?</h3>
+    <ul>
+      <li>✅ Make sure you're signed into Gmail</li>
+      <li>📩 Scan only one email at a time</li>
+      <li>🧠 Sandbox handles suspicious emails</li>
+      <li>📧 xenix.support@protonmail.com</li>
+    </ul>
+  </div>
+
+  <!-- Bottom bar: about (left) and support (right) -->
+  <div id="bottomBar">
+    <button id="infoButton" title="About">ℹ️</button>
+    <button id="supportButton" title="Support">🛟</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
