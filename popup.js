@@ -12,7 +12,7 @@ safeGet("stopRealtimeBtn")?.addEventListener("click", () => {
       loginStatus.style.border = "1px solid #ff5555";
       loginStatus.innerHTML = `<p style="color:#ff5555;">🛑 Real-Time Protection Disabled.</p>`;
 
-      // ✅ Hide the stop button again
+      //  Hide the stop button again
       const stopBtn = safeGet("stopRealtimeBtn");
       if (stopBtn) stopBtn.style.display = "none";
     } else {
@@ -465,7 +465,7 @@ safeGet("loginStatus").style.display = "none";
     sendToSandbox(data);
   }
 }
-// === 🛡️ REAL-TIME SCANNING MODE ===
+// ===  REAL-TIME SCANNING MODE ===
 let realtimeRunning = false;
 let lastCheckedMessageIds = new Set();
 
@@ -579,3 +579,4 @@ function notifyIfThreat(result) {
 }
 
 });
+
