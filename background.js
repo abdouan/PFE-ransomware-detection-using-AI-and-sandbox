@@ -12,7 +12,7 @@ chrome.storage.local.get(["globalToken", "realtimeRunning"], (data) => {
   }
 });
 
-// ✅ Listen for messages from popup.js
+//  Listen for messages from popup.js
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "startRealtime" && message.token) {
     globalToken = message.token;
@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-// ✅ Start polling Gmail
+//  Start polling Gmail
 function startPolling() {
   if (!pollingInterval) {
     pollingInterval = setInterval(() => {
@@ -37,11 +37,11 @@ function startPolling() {
         checkNewEmails(globalToken);
       }
     }, 30000);
-    console.log("✅ Real-time polling started.");
+    console.log(" Real-time polling started.");
   }
 }
 
-// ✅ Check new unread emails
+//  Check new unread emails
 async function checkNewEmails(token) {
   try {
     const res = await fetch("https://gmail.googleapis.com/gmail/v1/users/me/messages?maxResults=5&labelIds=INBOX&q=is:unread", {
@@ -77,7 +77,7 @@ async function checkNewEmails(token) {
   }
 }
 
-// ✅ Extract email content
+//  Extract email content
 async function fetchEmailContent(token, messageId) {
   try {
     const res = await fetch(`https://gmail.googleapis.com/gmail/v1/users/me/messages/${messageId}?format=full`, {
@@ -123,7 +123,7 @@ function extractText(payload) {
   return res;
 }
 
-// ✅ Notification system
+//  Notification system
 function notifyIfThreat(result) {
   let verdict = result.label || result.verdict || "unknown";
   if (verdict === "0") verdict = "benign";
@@ -149,3 +149,4 @@ function notifyIfThreat(result) {
     });
   }
 }
+
